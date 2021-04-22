@@ -1,5 +1,23 @@
-#ifndef PRINTSPIDER_GENWAVEFORM_H
-#define PRINTSPIDER_GENWAVEFORM_H
+/*
+Copyright 2021 Pavel Semenov
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+#ifndef PRINTSPIDER_H
+#define PRINTSPIDER_H
+
+#include <stdint.h>
 
 /*
 These are routines that manage the waveforms for firing all the nozzles of the cartridge once,
@@ -34,11 +52,31 @@ needs to be sent to the cartridge.
 //Number of nozzles in each row of mono cartridge
 #define PRINTSPIDER_BLACK_NOZZLES_IN_ROW 168
 
+enum printspider_waveform_type_en {
+	PRINTSPIDER_WAVEFORM_COLOR_A = 0,		//old, duplicates lines on 2nd color cart
+	PRINTSPIDER_WAVEFORM_COLOR_B = 1,			//works on 2nd color cart
+	PRINTSPIDER_WAVEFORM_BLACK_A = 2,			//old, works on bw cart
+	PRINTSPIDER_WAVEFORM_BLACK_B = 3			//new bw cart
+};
+
+/*
+Structure to store the waveform data, so you can easily add others if needed.
+*/
+typedef struct printspider_waveform_desc_t {
+	uint16_t *data;
+	int len;
+} printspider_waveform_desc_t;
+
+/**
+ * Get waveform descriptor by type.
+ */
+printspider_waveform_desc_t printspider_get_waveform(enum printspider_waveform_type_en type);
+
 /*
 In the nozzle data array `l`, this enables the `p`'th nozzle from the top of the row of nozzles with color 
 `color` to fire.
 */
-void printspider_fire_nozzle_color(uint8_t *l, int p, int color);
+void printspider_set_nozzle_color(uint8_t *l, int p, int color);
 
 /*
 In the nozzle data array `l` , this function sets the enable bit for the `p`'th nozzle from the top 
@@ -46,8 +84,7 @@ of the inkjet nozzles in row `row`. The black cartridge has two rows, the 2nd on
 direction and interleaved with the 1st (offset by half a nozzle). Note that the 2 first and last nozzles 
 of each 168-nozzle row are not connected (giving a total of 324 nozzles in the combined two rows).
 */
-void printspider_fire_nozzle_black(uint8_t *l, int p, int row);
-
+void printspider_set_nozzle_black(uint8_t *l, int p, int row);
 
 /*
 Use the nozzle data in `nozdata` combined with the waveform template `tp` which has a length of `l` 16-bit 

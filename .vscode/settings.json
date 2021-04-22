@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "printspider.h": "c"
+    },
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }"
+}
