@@ -22,7 +22,7 @@ Open project with PlatformIO.
 Then you can run it with PlatformIO [debug](https://docs.platformio.org/en/latest/plus/debugging.html) feature. **./platformio.ini** has configured property to debug builded firmware with [simavr](https://github.com/buserror/simavr) AVR simulator.
 
 Additionally you can run simulation with otputing logic data to VCD(value change dump) file for viewing in logic analisys GUI like [GTKWave](http://gtkwave.sourceforge.net/) or [PulseView](https://sigrok.org/wiki/PulseView).
-Previously you should build and install latest version of *simvar* from source code as follows:
+Before that, you will need to build and install latest version of *simvar* from source code as follows:
 
 ```bash
 git clone https://github.com/buserror/simavr.git
