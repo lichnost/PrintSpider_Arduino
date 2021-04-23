@@ -43,9 +43,9 @@ Screenshot from PulseView:
 
 ## Licensing
 
-Originally code in **./lib/PrintSpider/printspider.h** and **./lib/PrintSpider/printspider.c** borrowed from here [https://github.com/Spritetm/printercart_simple](https://github.com/Spritetm/printercart_simple) was licensed under "THE BEER-WARE LICENSE" (Revision 42). In this repository it's license is changed with Apache 2.0.
+Originally code in **./lib/PrintSpider/printspider.h** and **./lib/PrintSpider/printspider.c** borrowed from here [https://github.com/Spritetm/printercart_simple](https://github.com/Spritetm/printercart_simple) was licensed under "THE BEER-WARE LICENSE" (Revision 42). In this repository it's license is changed with Apache License, Version 2.0.
 
-All code provided here licensed as Apache 2.0.
+All code provided here licensed with Apache License, Version 2.0.
 
 ```
 Copyright 2021 Pavel Semenov
