@@ -30,13 +30,14 @@ cd simavr/
 make install RELEASE=1
 ```
 
-Then you can start simulation:
+Then you can build project and start simulation with command:
 
 ```bash
 simavr ./.pio/build/uno/firmware.elf -m atmega328p -f 16000000L --output output.vcd --add-trace D1=trace@0x002B/0x01 --add-trace D2=trace@0x002B/0x02 --add-trace D3=trace@0x002B/0x04 --add-trace CSYNC=trace@0x002B/0x08 --add-trace S1=trace@0x002B/0x10 --add-trace S2=trace@0x002B/0x20 --add-trace S3=trace@0x002B/0x40 --add-trace S4=trace@0x002B/0x80 --add-trace S5=trace@0x0025/0x01 --add-trace DCLK=trace@0x0025/0x02 --add-trace F3=trace@0x0025/0x04 --add-trace F5=trace@0x0025/0x08
 ```
 
 Output VCD file will be named **./output.vcd**.
+
 Screenshot from PulseView:
 ![](./docs/pulseview.png)
 
