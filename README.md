@@ -1,3 +1,5 @@
+**PLEASE NOTE: THIS CODE HAS NOT BEEN TESTED AND MAY NOT WORKING PROPERLY**
+
 # PrintSpider for Arduino
 
 This repository contains source code for the [PrintSpider project](https://hackaday.io/project/176931-hp-printer-cartridge-control-module) of HP printer cartridge control module for Arduino Uno board. Project is about creating an Arduino compatible control module for HP cartridge in easy to connect format, witch parts almost all is printable with 3D printer.
